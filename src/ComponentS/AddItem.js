@@ -5,7 +5,6 @@ class AddItem extends React.Component {
     super(props);
     this.state = {
       productName: "",
-      
     };
   }
   render() {
@@ -18,6 +17,10 @@ class AddItem extends React.Component {
             this.state.productName,
             Number(this.state.productPrice)
           );
+          this.setState({
+            productName: "",
+            productPrice:0
+           });
         }}
       >
         <div className="m-5 container">
@@ -31,7 +34,8 @@ class AddItem extends React.Component {
             onChange={(e) => {
               this.setState({ productName: e.currentTarget.value });
             }}
-            value={this.state.productName} required
+            value={this.state.productName}
+            required
           />
           <input
             className="col-3"
@@ -42,6 +46,7 @@ class AddItem extends React.Component {
             onChange={(e) => {
               this.setState({ productPrice: e.currentTarget.value });
             }}
+            value={this.state.productPrice}
             required
           />
           <button type="submit" className="col-2 btn btn-info">
